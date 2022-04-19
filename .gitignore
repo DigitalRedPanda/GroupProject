@@ -1,3 +1,5 @@
 *.ssh
 *.pub
-.vscode
+#The compiled java classes and the vscode folder is ignored to avoid IDE conflictions
+/.vscode/
+/bin/
