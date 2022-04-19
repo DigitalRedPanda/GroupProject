@@ -1,4 +1,4 @@
-package Company.Members;
+package util;
 
 public interface Registeration {
 
