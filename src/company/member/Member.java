@@ -1,7 +1,7 @@
 package company.member;
 
 import java.util.Date;
-
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import java.util.regex.Pattern;
@@ -50,7 +50,7 @@ public abstract class Member {
         return email;
     }
 
-    // public abstract ;
+    public abstract Optional<? extends Member> verify();
 
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {
