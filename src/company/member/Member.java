@@ -50,7 +50,7 @@ public abstract class Member {
         return email;
     }
 
-    ظظpublic abstract  ;
+    // public abstract ;
 
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {
