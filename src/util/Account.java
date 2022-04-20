@@ -1,6 +1,6 @@
 package util;
 
-public interface Registeration {
+public interface Account {
 
  void signIn();
 

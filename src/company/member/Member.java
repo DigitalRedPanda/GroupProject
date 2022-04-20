@@ -50,8 +50,6 @@ public abstract class Member {
         return email;
     }
 
-    public abstract Optional<? extends Member> verify();
-
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {
         return Pattern.compile("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(/s)*$").matcher(email)
