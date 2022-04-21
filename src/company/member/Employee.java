@@ -1,8 +1,19 @@
 package company.member;
 
-import java.util.Optional;
-import java.util.function.Predicate;
+import util.Account;
 
-public class Employee extends Member {
+public class Employee extends Member implements Account {
+
+ @Override
+ public void signIn() {
+  // TODO Auto-generated method stub
+
+ }
+
+ @Override
+ public void register() {
+  // TODO Auto-generated method stub
+
+ }
 
 }
