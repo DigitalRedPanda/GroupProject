@@ -1,7 +1,7 @@
 package company.member;
 
 import java.util.Date;
-import java.util.Optional;
+
 import java.util.function.Predicate;
 
 import java.util.regex.Pattern;
@@ -49,6 +49,8 @@ public abstract class Member {
     public String getEmail() {
         return email;
     }
+
+    public abstract boolean isStored();
 
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {

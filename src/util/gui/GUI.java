@@ -1,34 +1,47 @@
 package util.gui;
 
 import javafx.application.Application;
-
+import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GUI extends Application {
 
  @Override
- public void start(Stage arg0) throws Exception {
+ public void start(Stage primaryStage) throws Exception {
 
-  StackPane pane = new StackPane();
+  Pane root = new StackPane();
 
-  Scene scene = new Scene(pane, 600, 600, Color.VIOLET);
+  Pane loginLayout = new VBox(50);
+
+  root.getChildren().add(loginLayout);
+
+  Scene scene = new Scene(root, 600, 600);
 
   Image icon = new Image(
     "file:src\\util\\gui\\icon\\Company.png");
 
-  arg0.getIcons().add(icon);
+  scene.setFill(Color.rgb(20, 40, 80));
 
-  arg0.setTitle("Registration");
+  primaryStage.initStyle(StageStyle.DECORATED);
 
-  arg0.show();
+  primaryStage.getIcons().add(icon);
+
+  primaryStage.setScene(scene);
+
+  primaryStage.setTitle("Registration");
+
+  primaryStage.show();
 
  }
 

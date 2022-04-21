@@ -16,4 +16,10 @@ public class Employee extends Member implements Account {
 
  }
 
+ @Override
+ public boolean isStored() {
+  // TODO Auto-generated method stub
+  return false;
+ }
+
 }
