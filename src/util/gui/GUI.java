@@ -6,13 +6,15 @@ import javafx.application.Application;
 
 import javafx.geometry.Insets;
 
+import javafx.geometry.Pos;
+
 import javafx.scene.Scene;
+
+import javafx.scene.control.TextField;
 
 import javafx.scene.image.Image;
 
 import javafx.scene.layout.BorderPane;
-
-import javafx.scene.layout.Pane;
 
 import javafx.scene.layout.VBox;
 
@@ -20,57 +22,74 @@ import javafx.scene.paint.Color;
 
 import javafx.scene.text.Text;
 
+import javafx.stage.Screen;
+
 import javafx.stage.Stage;
 
 import javafx.stage.StageStyle;
 
 public class GUI extends Application {
 
- @Override
- public void start(Stage primaryStage) throws Exception {
+  @Override
+  public void start(Stage primaryStage) throws Exception {
 
-  TranslateTransition translate = new TranslateTransition();
+    TranslateTransition translate = new TranslateTransition();
 
-  BorderPane border = new BorderPane();
+    // BorderPane border = new BorderPane();
 
-  VBox loginLayout = new VBox(50);
+    VBox loginLayout = new VBox(10);
 
-  border.getChildren().add(loginLayout);
+    // border.getChildren().add(loginLayout);
 
-  Scene scene = new Scene(border, 600, 600);
+    Scene scene = new Scene(loginLayout, 600, 600/* , Color.valueOf("#142850") */);
 
-  border.setCenter(loginLayout);
+    scene.setFill(Color.valueOf("#142850"));
 
-  Text txt1 = new Text("Username");
+    Text txt1 = new Text("Username");
 
-  txt1.setStyle("-fx-fill: #03cafc; -fx-font: 30 Cursive");
+    // BorderPane.setAlignment(loginLayout, Pos.BASELINE_CENTER);
 
-  loginLayout.setPadding(new Insets(10, 0, 10, 0));
+    txt1.setStyle("-fx-fill: #F5F5E9; -fx-font: 30 \"Courier New\";");
 
-  loginLayout.getChildren().add(txt1);
+    txt1.setStroke(Color.GRAY);
 
-  Image icon = new Image(
-    "file:src\\util\\gui\\icon\\Company.png");
+    /*
+     * TextField txtf1 = new TextField("Enter your name");
+     * 
+     * txtf1.setMaxWidth(150);
+     */
+    loginLayout.setPadding(new Insets(10, 0, 10, 0));
 
-  scene.setFill(Color.rgb(20, 40, 80));
+    loginLayout.getChildren().addAll(txt1/* , txtf1 */);
 
-  primaryStage.initStyle(StageStyle.DECORATED);
+    loginLayout.setAlignment(Pos.CENTER);
 
-  primaryStage.getIcons().add(icon);
+    Image icon = new Image(
+        "file:src\\util\\gui\\icon\\Company.png");
 
-  primaryStage.setScene(scene);
+    primaryStage.initStyle(StageStyle.DECORATED);
 
-  primaryStage.setTitle("Registration");
+    primaryStage.getIcons().add(icon);
 
-  primaryStage.setMinWidth(500);
+    primaryStage.setScene(scene);
 
-  primaryStage.show();
+    primaryStage.setTitle("Registration");
 
- }
+    primaryStage.setMinWidth(500);
 
- public static void main(String[] args) {
+    primaryStage.setMinHeight(600);
 
-  launch();
+    primaryStage.setMaxHeight(Screen.getPrimary().getBounds().getHeight());
 
- }
+    primaryStage.setMaxWidth(Screen.getPrimary().getBounds().getWidth());
+
+    primaryStage.show();
+
+  }
+
+  public static void main(String[] args) {
+
+    launch();
+
+  }
 }
