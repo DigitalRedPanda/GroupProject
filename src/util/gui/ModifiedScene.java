@@ -3,24 +3,25 @@ package util.gui;
 import java.util.Arrays;
 import java.util.function.BiConsumer;
 
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+// import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.control.Button;
 
 public class ModifiedScene extends Scene {
 
- public ModifiedScene(VBox pane, Text text, TextField[] textFields) {
+ public ModifiedScene(VBox pane, Text text, TextField[] textFields, Button initiatorButton, Button switchingButton) {
   super(pane, 800, 600);
   // Application.setUserAgentStylesheet("#142850");
-  pane.getChildren().add(text);
+  pane.getChildren().addAll(text, initiatorButton);
   improvePaneContent.accept(pane, textFields);
   pane.setAlignment(Pos.CENTER);
-  text.setStyle("-fx-fill: #F5F5E9; -fx-font: 50 \"Courier New\"; -fx-font-weight: bold");
-  text.setStroke(Color.GRAY);
+  text.setStyle("-fx-fill: #F5F5E9; -fx-font: 50 \"Courier New\"; -fx-font-weight: bold; -fx-stroke: grey");
+  // text.setStroke(Color.GRAY);
+  initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
  }
 
  BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {

@@ -21,8 +21,8 @@ public class GUI extends Application {
     // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
     VBox loginLayout = new VBox(5);
     TextField txtf1 = new TextField();
-    txtf1.setPromptText("Enter email");
     PasswordField txtf2 = new PasswordField();
+    txtf1.setPromptText("Enter email");
     txtf2.setPromptText("Enter password");
     Scene loginScene = new ModifiedScene(loginLayout, new Text("Login"), new TextField[] { txtf1, txtf2 });
     // loginScene.setFill(Color.valueOf("#142850"));
