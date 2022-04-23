@@ -2,10 +2,10 @@ package util.gui;
 
 import java.util.Arrays;
 import java.util.function.BiConsumer;
-import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -20,12 +20,11 @@ public class GUI extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    TranslateTransition translate = new TranslateTransition();
     VBox loginLayout = new VBox(5);
     Scene scene = new Scene(loginLayout, 600, 600/* , Color.valueOf("#142850") */);
     TextField txtf1 = new TextField();
-    txtf1.setPromptText("Enter username");
-    TextField txtf2 = new TextField();
+    txtf1.setPromptText("Enter email");
+    PasswordField txtf2 = new PasswordField();
     txtf2.setPromptText("Enter passowrd");
     Text txt1 = new Text("Login");
     txt1.setStyle("-fx-fill: #F5F5E9; -fx-font: 30 \"Courier New\";");
