@@ -24,7 +24,7 @@ public class GUI extends Application {
     VBox loginLayout = new VBox(5);
     Scene scene = new Scene(loginLayout, 600, 600/* , Color.valueOf("#142850") */);
     TextField txtf1 = new TextField();
-    txtf1.setPromptText("Enter Username");
+    txtf1.setPromptText("Enter username");
     TextField txtf2 = new TextField();
     txtf2.setPromptText("Enter passowrd");
     Text txt1 = new Text("Login");
