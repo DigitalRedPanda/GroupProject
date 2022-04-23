@@ -1,14 +1,11 @@
 package util.gui;
 
-import java.util.Arrays;
-import java.util.function.BiConsumer;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -20,39 +17,31 @@ public class GUI extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+    // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+
     VBox loginLayout = new VBox(5);
-    Scene scene = new Scene(loginLayout, 600, 600/* , Color.valueOf("#142850") */);
     TextField txtf1 = new TextField();
     txtf1.setPromptText("Enter email");
     PasswordField txtf2 = new PasswordField();
-    txtf2.setPromptText("Enter passowrd");
-    Text txt1 = new Text("Login");
-    txt1.setStyle("-fx-fill: #F5F5E9; -fx-font: 30 \"Courier New\";");
-    txt1.setStroke(Color.GRAY);
-    loginLayout.getChildren().add(txt1);
-    improvePaneContent.accept(loginLayout, new TextField[] { txtf1, txtf2 });
-    scene.setFill(Color.valueOf("#142850"));
-    loginLayout.setAlignment(Pos.CENTER);
+    txtf2.setPromptText("Enter password");
+    Scene loginScene = new ModifiedScene(loginLayout, new Text("Login"), new TextField[] { txtf1, txtf2 });
+    loginScene.setFill(Color.valueOf("#142850"));
+    Button login = new Button();
+    login.setText("Login");
+    login.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
+    loginLayout.getChildren().add(login);
     Image icon = new Image(
         "file:src\\util\\gui\\icon\\Company.png");
-    primaryStage.initStyle(StageStyle.DECORATED);
+    // primaryStage.initStyle(StageStyle.UTILITY);
     primaryStage.getIcons().add(icon);
-    primaryStage.setScene(scene);
-    primaryStage.setTitle("Login");
+    primaryStage.setScene(loginScene);
+    primaryStage.setTitle("Digi inc.");
     primaryStage.setMinWidth(500);
     primaryStage.setMinHeight(600);
     primaryStage.setMaxHeight(Screen.getPrimary().getBounds().getHeight());
     primaryStage.setMaxWidth(Screen.getPrimary().getBounds().getWidth());
     primaryStage.show();
   }
-
-  BiConsumer<Pane, TextField[]> improvePaneContent = (pane, textFields) -> {
-    Arrays.stream(textFields).forEach((textField) -> {
-      textField.setMaxHeight(60);
-      textField.setMaxWidth(200);
-    });
-    pane.getChildren().addAll(textFields);
-  };
 
   public static void main(String[] args) {
     launch();
