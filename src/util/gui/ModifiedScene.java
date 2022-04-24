@@ -13,15 +13,18 @@ import javafx.scene.control.Button;
 
 public class ModifiedScene extends Scene {
 
- public ModifiedScene(VBox pane, Text text, TextField[] textFields, Button initiatorButton, Button switchingButton) {
+ public ModifiedScene(VBox pane, Text text, TextField[] textFields,
+   Button initiatorButton, Button switchingButton) {
   super(pane, 800, 600);
   // Application.setUserAgentStylesheet("#142850");
-  pane.getChildren().addAll(text, initiatorButton);
+  pane.getChildren().add(text);
   improvePaneContent.accept(pane, textFields);
+  pane.getChildren().addAll(switchingButton, initiatorButton);
   pane.setAlignment(Pos.CENTER);
   text.setStyle("-fx-fill: #F5F5E9; -fx-font: 50 \"Courier New\"; -fx-font-weight: bold; -fx-stroke: grey");
   // text.setStroke(Color.GRAY);
   initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
+  // switchingButton.setStyle("-fx-border: none; -fx-decoration: underline;");
  }
 
  BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {
