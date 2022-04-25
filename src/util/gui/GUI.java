@@ -73,13 +73,15 @@ public class GUI extends Application {
     Scene registerScene = new ModifiedScene(regiserLayout, new Text("Register"),
         new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
         loginSceneButton);
+
     /*
-     * Consumer<Scene> handleConsumer = scene -> {
+     * Consumer<Void> handleConsumer = Void -> {
+     * 
+     * 
      * /*
-     * Optional.of(scene).filter(currentScene ->
+     * Optional.of(primaryStage.getScene()).filter(currentScene ->
      * currentScene.equals(loginScene)).map(currentScene -> {
      * primaryStage.setScene(registerScene);
-     * primaryStage.show();
      * return currentScene;
      * }).filter(currentScene ->
      * currentScene.equals(registerScene)).map(currentScene -> {
@@ -88,24 +90,17 @@ public class GUI extends Application {
      * return currentScene;
      * });
      * 
-     * if (scene == loginScene) {
-     * primaryStage.setScene(registerScene);
-     * primaryStage.show();
-     * } else {
-     * primaryStage.setScene(loginScene);
-     * primaryStage.show();
-     * }
      * };
      */
+
     registerButton.setOnAction(event -> {
-      // handleConsumer.accept(registerScene);
+      // handleConsumer.accept(null);
+
       primaryStage.setScene(registerScene);
-      primaryStage.show();
     });
     loginSceneButton.setOnAction(event -> {
-      // handleConsumer.accept(loginScene);
+      // handleConsumer.accept(null);
       primaryStage.setScene(loginScene);
-      primaryStage.show();
     });
 
     // loginScene.setFill(Color.valueOf("#142850"));
