@@ -111,7 +111,6 @@ public class GUI extends Application {
     });
     loginSceneButton.setOnAction(event -> {
       // handleConsumer.accept(loginScene);
-
       primaryStage.setScene(loginScene);
       primaryStage.show();
     });
