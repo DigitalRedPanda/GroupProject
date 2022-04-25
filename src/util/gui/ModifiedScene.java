@@ -28,22 +28,6 @@ public class ModifiedScene extends Scene {
   initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
   // switchingButton.setStyle("-fx-border: none; -fx-decoration: underline;");
   // This method that contains a lambda is liable for switching between scenes
-  /*
-   * switchingButton.setOnAction(action -> {
-   * try {
-   * if (GUI.currentScene.equals(GUI.firstScene)) {
-   * GUI.appStage.setScene(GUI.secondScene);
-   * GUI.appStage.show();
-   * } else {
-   * GUI.appStage.setScene(GUI.firstScene);
-   * GUI.appStage.show();
-   * }
-   * } catch (Exception ex) {
-   * ex.printStackTrace();
-   * }
-   * });
-   */
-
  }
 
  BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {

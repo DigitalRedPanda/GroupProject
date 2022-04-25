@@ -20,11 +20,6 @@ import javafx.stage.Stage;
 
 public class GUI extends Application {
 
-  static Stage appStage;
-  static Scene currentScene;
-  static Scene firstScene;
-  static Scene secondScene;
-
   @Override
   public void start(Stage primaryStage) throws IOException {
 
@@ -49,8 +44,6 @@ public class GUI extends Application {
     registerButton.setText("Aren't you registered?");
     Scene loginScene = new ModifiedScene(loginLayout, new Text("Login"), new TextField[] {
         emailField, passwordField }, loginButton, registerButton);
-    // A demo to examine the modified scene switch scene function
-    firstScene = loginScene;
     // Creating a pane that comprises registeration necessities
     VBox regiserLayout = new VBox(5);
     // The typed-username is stored in the text file to greet the user after
