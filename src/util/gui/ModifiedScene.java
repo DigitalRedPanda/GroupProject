@@ -1,6 +1,7 @@
 package util.gui;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.BiConsumer;
 
 import javafx.geometry.Pos;
@@ -9,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 // import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class ModifiedScene extends Scene {
@@ -25,6 +27,23 @@ public class ModifiedScene extends Scene {
   // text.setStroke(Color.GRAY);
   initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
   // switchingButton.setStyle("-fx-border: none; -fx-decoration: underline;");
+  // This method that contains a lambda is liable for switching between scenes
+  /*
+   * switchingButton.setOnAction(action -> {
+   * try {
+   * if (GUI.currentScene.equals(GUI.firstScene)) {
+   * GUI.appStage.setScene(GUI.secondScene);
+   * GUI.appStage.show();
+   * } else {
+   * GUI.appStage.setScene(GUI.firstScene);
+   * GUI.appStage.show();
+   * }
+   * } catch (Exception ex) {
+   * ex.printStackTrace();
+   * }
+   * });
+   */
+
  }
 
  BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {
