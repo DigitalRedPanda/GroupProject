@@ -1,9 +1,11 @@
 package util.gui;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import company.member.Member;
 import javafx.application.Application;
 //import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.VBox;
 //import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -21,7 +24,7 @@ import javafx.stage.Stage;
 public class GUI extends Application {
 
   @Override
-  public void start(Stage primaryStage) throws IOException {
+  public void start(Stage primaryStage) {
 
     // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
     // I chose this pane type because it acommodates a good stacking support for
@@ -39,8 +42,11 @@ public class GUI extends Application {
     // This button will initiate the validation procedure that validates his
     // registeration
     Button loginButton = new Button();
+    // This button will contain the action of switching to the second scene
     Button registerButton = new Button();
+    // Set the button's content to be "Login"
     loginButton.setText("Login");
+    // Set the button's content to be "Aren't you registered"
     registerButton.setText("Aren't you registered?");
     Scene loginScene = new ModifiedScene(loginLayout, new Text("Login"), new TextField[] {
         emailField, passwordField }, loginButton, registerButton);
@@ -58,49 +64,39 @@ public class GUI extends Application {
     usernameField.setPromptText("Enter your username");
     emailRegisterField.setPromptText("Enter your email");
     passwordForCheckingField.setPromptText("Enter your password");
+    emailRegisterField.setOnKeyTyped(event -> {
+      Optional<String> emailOptional = Optional.ofNullable(event.getText());
+      emailOptional.filter(email -> Member.validateEmail.test(email) == false).map(email -> {
+        emailRegisterField.setStyle("-fx-text-box-border: red");
+        return null;
+      });
+      emailOptional.filter(email -> Member.validateEmail.test(email)).map(email -> {
+
+      });
+    });
     // This button will initiate the input processing to assure a correct input has
     // been typed
     Button registerNowButton = new Button();
     // This button is responsible for switching back to the first scene
     Button loginSceneButton = new Button();
-    // Set button's content to be "Register"
+    // Set this button's content to be "Register"
     registerNowButton.setText("Register");
-    // Set button's content to be "Are you already registered?"
+    // Set this button's content to be "Are you already registered?"
     loginSceneButton.setText("Are you already registered?");
     // This second scene includes the following: VBox, Text, TextField[], First
     // button, Second Button
-
     Scene registerScene = new ModifiedScene(regiserLayout, new Text("Register"),
         new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
         loginSceneButton);
 
-    /*
-     * Consumer<Void> handleConsumer = Void -> {
-     * 
-     * 
-     * /*
-     * Optional.of(primaryStage.getScene()).filter(currentScene ->
-     * currentScene.equals(loginScene)).map(currentScene -> {
-     * primaryStage.setScene(registerScene);
-     * return currentScene;
-     * }).filter(currentScene ->
-     * currentScene.equals(registerScene)).map(currentScene -> {
-     * primaryStage.setScene(loginScene);
-     * primaryStage.show();
-     * return currentScene;
-     * });
-     * 
-     * };
-     */
-
     registerButton.setOnAction(event -> {
-      // handleConsumer.accept(null);
-
       primaryStage.setScene(registerScene);
     });
     loginSceneButton.setOnAction(event -> {
-      // handleConsumer.accept(null);
       primaryStage.setScene(loginScene);
+    });
+    registerNowButton.setOnAction(event -> {
+
     });
 
     // loginScene.setFill(Color.valueOf("#142850"));
