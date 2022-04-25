@@ -65,14 +65,17 @@ public class GUI extends Application {
     emailRegisterField.setPromptText("Enter your email");
     passwordForCheckingField.setPromptText("Enter your password");
     emailRegisterField.setOnKeyTyped(event -> {
-      Optional<String> emailOptional = Optional.ofNullable(event.getText());
+      System.out.println(Member.validateEmail.test(emailRegisterField.getText()));
+      Optional<String> emailOptional = Optional.ofNullable(emailRegisterField.getText());
       emailOptional.filter(email -> Member.validateEmail.test(email) == false).map(email -> {
-        emailRegisterField.setStyle("-fx-text-box-border: red");
+        emailRegisterField.setStyle("-fx-text-box-border: red -fx-");
         return null;
       });
       emailOptional.filter(email -> Member.validateEmail.test(email)).map(email -> {
-
+        emailRegisterField.setStyle("-fx-border-color: none");
+        return null;
       });
+
     });
     // This button will initiate the input processing to assure a correct input has
     // been typed

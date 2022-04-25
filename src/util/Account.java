@@ -1,8 +1,10 @@
 package util;
 
+import company.member.Member;
+
 public interface Account {
 
- void signIn();
+ boolean signIn(Member member);
 
  void register();
 

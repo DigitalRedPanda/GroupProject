@@ -46,12 +46,11 @@ public abstract class Member {
         return email;
     }
 
-    public abstract boolean isStored();
+    public abstract boolean isStored(String stored);
 
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {
-        return Pattern.compile("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(/s)*$").matcher(email)
-                .matches();
+        return email.matches("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(\\s)*$");
     };
 
 }
