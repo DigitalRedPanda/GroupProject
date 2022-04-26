@@ -53,4 +53,8 @@ public abstract class Member {
         return email.matches("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(\\s)*$");
     };
 
+    public static Predicate<String> validatePassowrd = password -> {
+        return password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+-=<>?{}\\[\\]]).{9,15})[\\s]*$");
+    };
+
 }
