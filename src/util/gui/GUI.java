@@ -1,22 +1,16 @@
 package util.gui;
 
-import java.awt.Color;
-import java.io.IOException;
 import java.util.Optional;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import company.member.Member;
 import javafx.application.Application;
-//import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.VBox;
 //import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
