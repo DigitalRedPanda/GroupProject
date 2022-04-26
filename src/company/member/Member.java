@@ -46,7 +46,7 @@ public abstract class Member {
         return email;
     }
 
-    public abstract boolean isStored(String stored);
+    public abstract boolean isStored(String memberName);
 
     // Don't modify this
     public static Predicate<String> validateEmail = email -> {
