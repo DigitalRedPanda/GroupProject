@@ -1,10 +1,11 @@
 package company.member;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
-
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.function.Predicate;
-
-import java.util.regex.Pattern;
 
 public abstract class Member {
 
@@ -13,6 +14,8 @@ public abstract class Member {
     private String password;
 
     private Date date;
+
+    File storage = new File("src/company/member/data/Users.txt");
 
     public Member() {
 
@@ -28,6 +31,29 @@ public abstract class Member {
 
         this.password = password;
 
+    }
+
+    public File getStorage() {
+        return storage;
+    }
+
+    boolean infoExists(String contentToSearch, int position) {
+
+        try (Scanner scan = new Scanner(getStorage())) {
+            while (scan.hasNextLine()) {
+                var memberInfo = scan.nextLine().split(",");
+                Optional<String> contentOptional = Optional.of(contentToSearch);
+                contentOptional.filter(content -> content.equals(memberInfo[position])).map(name -> {
+                    return true;
+                });
+                contentOptional.filter(content -> !content.equals(memberInfo[position])).map(name -> {
+                    return false;
+                });
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public void setEmail(String email) {

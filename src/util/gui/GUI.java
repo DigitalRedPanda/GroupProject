@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 public class GUI extends Application {
   boolean Indicator = false;
+  boolean existanceIndicator = false;
   Label emailCorrectionIndicator;
   Employee emp = new Employee();
   BiConsumer<Predicate<String>, TextField> contentValidator = (validator, textField) -> {
@@ -28,7 +29,7 @@ public class GUI extends Application {
     contentOptional.filter(content -> !validator.test(content) && !Indicator).map(content -> {
       System.out.println(validator.test(content));
       Indicator = true;
-      textField.setStyle("-fx-border-color: red;");
+      textField.setStyle("-fx-border-color: red");
       return content;
     });
     contentOptional.filter(content -> validator.test(content) && Indicator).map(content -> {
@@ -73,13 +74,27 @@ public class GUI extends Application {
     var usernameField = new TextField();
     // This field will be processed in order to avoid wrongly-typed emails
     var emailRegisterField = new TextField();
-    // This field will have a simple
+    // This field will have a password regex which notifies the user about the
+    // required minimums for the password components
     var passwordForCheckingField = new PasswordField();
     // This button will contain the username that will be showed with the greeting
     // scene when the user completely sign in
     usernameField.setPromptText("Enter your username");
     emailRegisterField.setPromptText("Enter your email");
     passwordForCheckingField.setPromptText("Enter your password");
+    usernameField.setOnKeyTyped(event -> {
+      Optional<String> existanceOptional = Optional.ofNullable(usernameField.getText());
+      existanceOptional.filter(username -> emp.usernameExists(username) && existanceIndicator).map(username -> {
+        usernameField.setStyle("-fx-border-color: red");
+        existanceIndicator = true;
+        return null;
+      });
+      existanceOptional.filter(username -> !emp.usernameExists(username) && !existanceIndicator).map(username -> {
+        usernameField.setStyle("-fx-border-color: none");
+        existanceIndicator = false;
+        return false;
+      });
+    });
     emailRegisterField.setOnKeyTyped(event -> {
       contentValidator.accept(Member.validateEmail, emailRegisterField);
     });
@@ -106,10 +121,6 @@ public class GUI extends Application {
     });
     loginSceneButton.setOnMouseClicked(event -> {
       primaryStage.setScene(loginScene);
-    });
-    registerNowButton.setOnMouseClicked(event -> {
-      Optional<String> employeeExists = Optional.of(usernameField.getText());
-
     });
 
     // loginScene.setFill(Color.valueOf("#142850"));
