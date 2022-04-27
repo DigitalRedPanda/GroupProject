@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
+import company.member.Employee;
 import company.member.Member;
 import javafx.application.Application;
 import javafx.scene.control.Button;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 public class GUI extends Application {
   boolean Indicator = false;
   Label emailCorrectionIndicator;
+  Employee emp = new Employee();
   BiConsumer<Predicate<String>, TextField> contentValidator = (validator, textField) -> {
     var contentOptional = Optional.ofNullable(textField.getText());
     contentOptional.filter(content -> !validator.test(content) && !Indicator).map(content -> {
@@ -99,13 +101,14 @@ public class GUI extends Application {
         new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
         loginSceneButton);
 
-    registerButton.setOnAction(event -> {
+    registerButton.setOnMouseClicked(event -> {
       primaryStage.setScene(registerScene);
     });
-    loginSceneButton.setOnAction(event -> {
+    loginSceneButton.setOnMouseClicked(event -> {
       primaryStage.setScene(loginScene);
     });
-    registerNowButton.setOnAction(event -> {
+    registerNowButton.setOnMouseClicked(event -> {
+      Optional<String> employeeExists = Optional.of(usernameField.getText());
 
     });
 
