@@ -83,17 +83,6 @@ public class GUI extends Application {
     emailRegisterField.setPromptText("Enter your email");
     passwordForCheckingField.setPromptText("Enter your password");
     usernameField.setOnKeyTyped(event -> {
-      Optional<String> existanceOptional = Optional.ofNullable(usernameField.getText());
-      existanceOptional.filter(username -> emp.usernameExists(username) && existanceIndicator).map(username -> {
-        usernameField.setStyle("-fx-border-color: red");
-        existanceIndicator = true;
-        return null;
-      });
-      existanceOptional.filter(username -> !emp.usernameExists(username) && !existanceIndicator).map(username -> {
-        usernameField.setStyle("-fx-border-color: none");
-        existanceIndicator = false;
-        return false;
-      });
     });
     emailRegisterField.setOnKeyTyped(event -> {
       contentValidator.accept(Member.validateEmail, emailRegisterField);
