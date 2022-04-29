@@ -24,7 +24,7 @@ public class ModifiedScene extends Scene {
     text.setStyle("-fx-fill: #F5F5E9; -fx-font: 50 \"Courier New\"; -fx-font-weight: bold; -fx-stroke: grey");
     // text.setStroke(Color.GRAY);
     initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
-    // switchingButton.setStyle("-fx-border: none; -fx-decoration: underline;");
+    switchingButton.setStyle("-fx-background-color: transparent; -fx-text-fill: grey; -fx-underline:true;");
     // This method that contains a lambda is liable for switching between scenes
   }
 

@@ -41,7 +41,7 @@ public abstract class Member {
 
         try (Scanner scan = new Scanner(getStorage())) {
             while (scan.hasNextLine()) {
-                var memberInfo = scan.nextLine().split(",\\s");
+                var memberInfo = scan.nextLine().split(", ");
                 Optional<String> contentOptional = Optional.of(contentToSearch);
                 contentOptional.filter(content -> content.equals(memberInfo[position])).map(name -> {
                     return true;
