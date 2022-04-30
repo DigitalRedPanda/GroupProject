@@ -17,14 +17,15 @@ public class ModifiedScene extends Scene {
       Button initiatorButton, Button switchingButton) {
     super(pane, 800, 600);
     // Application.setUserAgentStylesheet("#142850");
+    this.getStylesheets().add(this.getClass().getResource("InterfaceStyle.css").toExternalForm());
     pane.getChildren().add(text);
     improvePaneContent.accept(pane, textFields);
     pane.getChildren().addAll(switchingButton, initiatorButton);
     pane.setAlignment(Pos.CENTER);
-    text.setStyle("-fx-fill: #F5F5E9; -fx-font: 50 \"Courier New\"; -fx-font-weight: bold; -fx-stroke: grey");
+    text.setId("Header");
     // text.setStroke(Color.GRAY);
-    initiatorButton.setStyle("-fx-color: #4e4b44; -fx-font: 15 \"Monaco\"; ");
-    switchingButton.setStyle("-fx-background-color: transparent; -fx-text-fill: grey; -fx-underline:true;");
+    initiatorButton.setId("ProcessInitiator");
+    switchingButton.setId("Switcher");
     // This method that contains a lambda is liable for switching between scenes
   }
 
