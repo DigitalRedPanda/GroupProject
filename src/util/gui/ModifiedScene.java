@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 // import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -15,7 +16,7 @@ public class ModifiedScene extends Scene {
 
   public ModifiedScene(VBox pane, Text text, TextField[] textFields,
       Button initiatorButton, Button switchingButton) {
-    super(pane, 800, 600);
+    super(pane, 800, 600, Color.valueOf("#142850"));
     // Application.setUserAgentStylesheet("#142850");
     this.getStylesheets().add(this.getClass().getResource("InterfaceStyle.css").toExternalForm());
     pane.getChildren().add(text);
@@ -23,7 +24,6 @@ public class ModifiedScene extends Scene {
     pane.getChildren().addAll(switchingButton, initiatorButton);
     pane.setAlignment(Pos.CENTER);
     text.setId("Header");
-    // text.setStroke(Color.GRAY);
     initiatorButton.setId("ProcessInitiator");
     switchingButton.setId("Switcher");
     // This method that contains a lambda is liable for switching between scenes
@@ -32,8 +32,7 @@ public class ModifiedScene extends Scene {
   BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {
     Arrays.stream(textFields).forEach((textField) -> {
       // textField.setFocusTraversable(false);
-      textField.setMaxHeight(120);
-      textField.setMaxWidth(300);
+      textField.setId("Info");
     });
     pane.getChildren().addAll(textFields);
   };

@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
 //import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -47,6 +48,7 @@ public class GUI extends Application {
     // I chose this pane type because it acommodates a good stacking support for
     // nodes
     var loginLayout = new VBox(5);
+    loginLayout.setBackground(Background.EMPTY);
     // currentScene = primaryStage.getScene();
     // Email is typed here
     var emailField = new TextField();
@@ -68,7 +70,8 @@ public class GUI extends Application {
     var loginScene = new ModifiedScene(loginLayout, new Text("Login"), new TextField[] {
         emailField, passwordField }, loginButton, registerButton);
     // Creating a pane that comprises registeration necessities
-    var regiserLayout = new VBox(5);
+    var registerLayout = new VBox(5);
+    registerLayout.setBackground(Background.EMPTY);
     // The typed-username is stored in the text file to greet the user after
     // successfully signing in
     var usernameField = new TextField();
@@ -101,7 +104,7 @@ public class GUI extends Application {
     loginSceneButton.setText("Are you already registered?");
     // This second scene includes the following: VBox, Text, TextField[], First
     // button, Second Button
-    var registerScene = new ModifiedScene(regiserLayout, new Text("Register"),
+    var registerScene = new ModifiedScene(registerLayout, new Text("Register"),
         new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
         loginSceneButton);
 

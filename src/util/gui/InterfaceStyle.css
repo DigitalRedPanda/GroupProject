@@ -1,5 +1,5 @@
 #Switcher{
--fx-background-color: transparent;
+ -fx-background-color: transparent;
  -fx-text-fill: grey;
  -fx-underline: false;
 }
@@ -8,16 +8,20 @@
  -fx-underline: true;
 }
 #ProcessInitiator{
--fx-color: #4e4b44;
--fx-font: 15 "Monaco";
--fx-text-fill: white;
+ -fx-color: #4e4b44;
+ -fx-font: 15 "Monaco";
+ -fx-text-fill: white;
 }
 #ProcessInitiator:hover{
  -fx-color:grey;
 }
 #Header{
--fx-fill: #F5F5E9;
--fx-font: 50 "Courier New";
--fx-font-weight: bold;
--fx-stroke: grey;
+ -fx-fill: #F5F5E9;
+ -fx-font: 50 "Courier New";
+ -fx-font-weight: bold;
+ -fx-stroke: grey;
+}
+#Info{
+ -fx-max-height: 120;
+ -fx-max-width: 300;
 }
