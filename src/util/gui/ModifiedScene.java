@@ -20,7 +20,11 @@ public class ModifiedScene extends Scene {
     // Application.setUserAgentStylesheet("#142850");
     this.getStylesheets().add(this.getClass().getResource("InterfaceStyle.css").toExternalForm());
     pane.getChildren().add(text);
-    improvePaneContent.accept(pane, textFields);
+    Arrays.stream(textFields).forEach((textField) -> {
+      // textField.setFocusTraversable(false);
+      textField.setId("Info");
+    });
+    pane.getChildren().addAll(textFields);
     pane.getChildren().addAll(switchingButton, initiatorButton);
     pane.setAlignment(Pos.CENTER);
     text.setId("Header");
@@ -28,13 +32,5 @@ public class ModifiedScene extends Scene {
     switchingButton.setId("Switcher");
     // This method that contains a lambda is liable for switching between scenes
   }
-
-  BiConsumer<VBox, TextField[]> improvePaneContent = (pane, textFields) -> {
-    Arrays.stream(textFields).forEach((textField) -> {
-      // textField.setFocusTraversable(false);
-      textField.setId("Info");
-    });
-    pane.getChildren().addAll(textFields);
-  };
 
 }
