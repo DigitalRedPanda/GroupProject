@@ -1,4 +1,4 @@
-package util;
+package util.account;
 
 import company.member.Member;
 

@@ -25,3 +25,6 @@
  -fx-max-height: 120;
  -fx-max-width: 300;
 }
+#Info::selection{
+ 
+}

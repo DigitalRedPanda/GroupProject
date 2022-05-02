@@ -16,7 +16,7 @@ public class ModifiedScene extends Scene {
 
   public ModifiedScene(VBox pane, Text text, TextField[] textFields,
       Button initiatorButton, Button switchingButton) {
-    super(pane, 800, 600, Color.valueOf("#142850"));
+    super(pane, 600, 500, Color.valueOf("#142850"));
     // Application.setUserAgentStylesheet("#142850");
     this.getStylesheets().add(this.getClass().getResource("InterfaceStyle.css").toExternalForm());
     pane.getChildren().add(text);

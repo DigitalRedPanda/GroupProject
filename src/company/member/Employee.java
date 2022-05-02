@@ -2,7 +2,7 @@ package company.member;
 
 import java.util.ArrayList;
 
-import util.Account;
+import util.account.Account;
 
 public class Employee extends Member implements Account {
 
