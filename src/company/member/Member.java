@@ -15,8 +15,6 @@ public abstract class Member {
 
     private Date date;
 
-    File storage = new File("src/company/member/data/Users.txt");
-
     public Member() {
 
         date = new Date();
@@ -33,13 +31,9 @@ public abstract class Member {
 
     }
 
-    public File getStorage() {
-        return storage;
-    }
-
     boolean infoExists(String contentToSearch, int position) {
 
-        try (Scanner scan = new Scanner(getStorage())) {
+        try (Scanner scan = new Scanner(new File("src/company/member/data/Users.txt"))) {
             while (scan.hasNextLine()) {
                 var memberInfo = scan.nextLine().split(", ");
                 Optional<String> contentOptional = Optional.of(contentToSearch);
@@ -75,14 +69,4 @@ public abstract class Member {
     public abstract boolean usernameExists(String memberName);
 
     public abstract boolean emailExists(String email);
-
-    // Don't modify this
-    public static Predicate<String> validateEmail = email -> {
-        return email.matches("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(\\s)*$");
-    };
-
-    public static Predicate<String> validatePassowrd = password -> {
-        return password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+-=<>?{}\\[\\]]).{9,15})[\\s]*$");
-    };
-
 }

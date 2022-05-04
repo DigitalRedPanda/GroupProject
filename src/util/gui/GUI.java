@@ -88,10 +88,10 @@ public class GUI extends Application {
     usernameField.setOnKeyTyped(event -> {
     });
     emailRegisterField.setOnKeyTyped(event -> {
-      contentValidator.accept(Member.validateEmail, emailRegisterField);
+      // contentValidator.accept(Member.validateEmail, emailRegisterField);
     });
     passwordForCheckingField.setOnKeyTyped(event -> {
-      contentValidator.accept(Member.validatePassowrd, passwordForCheckingField);
+      // contentValidator.accept(Member.validatePassowrd, passwordForCheckingField);
     });
     // This button will initiate the input processing to assure a correct input has
     // been typed

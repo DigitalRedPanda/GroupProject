@@ -1,7 +1,6 @@
 package util.gui;
 
 import java.util.Arrays;
-import java.util.function.BiConsumer;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-// import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class ModifiedScene extends Scene {
@@ -21,10 +19,9 @@ public class ModifiedScene extends Scene {
     this.getStylesheets().add(this.getClass().getResource("InterfaceStyle.css").toExternalForm());
     pane.getChildren().add(text);
     Arrays.stream(textFields).forEach((textField) -> {
-      // textField.setFocusTraversable(false);
       textField.setId("Info");
+      pane.getChildren().add(textField);
     });
-    pane.getChildren().addAll(textFields);
     pane.getChildren().addAll(switchingButton, initiatorButton);
     pane.setAlignment(Pos.CENTER);
     text.setId("Header");
