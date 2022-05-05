@@ -1,9 +1,8 @@
 package util.account;
 
 import java.util.Optional;
-import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
-
 import javafx.scene.control.TextField;
 
 public class InformationValidator {
@@ -28,12 +27,17 @@ public class InformationValidator {
   * });
   * };
   */
- BiConsumer<String, Character> determineValidationType = (info, type) -> {
-  if (info.toLowerCase().equals('e')) {
-
-  } else if (info.toLowerCase().equals('p')) {
-
-  }
+ Consumer<TextField> validateInput = textField -> {
+  var input = Optional.ofNullable(textField.getText());
+  input.filter(text -> (validateEmail.test(text) ^ validatePassowrd.test(text)) && Indicator).map(text -> {
+   Indicator = true;
+   textField.setStyle("-fx-border-color: none");
+   return text;
+  }).filter(text -> !(validateEmail.test(text) ^ validatePassowrd.test(text)) && !Indicator).map(text -> {
+   Indicator = false;
+   textField.setStyle("-fx-border-color: red");
+   return text;
+  });
  };
 
  // Don't modify this
