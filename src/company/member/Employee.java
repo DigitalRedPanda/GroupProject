@@ -30,6 +30,5 @@ public class Employee extends Member implements Account {
  public void signIn() {
   // TODO implementing an algorithim that signs the employees in and checks
   // through a reading method that confirms their existance
-
  }
 }
