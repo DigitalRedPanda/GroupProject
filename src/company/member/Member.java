@@ -2,7 +2,7 @@ package company.member;
 
 import java.util.Date;
 
-public abstract class Member {
+public class Member {
 
     private String email;
 

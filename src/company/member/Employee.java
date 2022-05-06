@@ -21,13 +21,15 @@ public class Employee extends Member implements Account {
  }
 
  @Override
- public boolean signIn(Member employee) {
-  return false;
-
+ public void register() {
+  // TODO implementing an algorithim that registers the Employee via a writing
+  // method that stores their information
  }
 
  @Override
- public void register() {
+ public void signIn() {
+  // TODO implementing an algorithim that signs the employees in and checks
+  // through a reading method that confirms their existance
 
  }
 }
