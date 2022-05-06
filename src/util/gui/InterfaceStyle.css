@@ -11,6 +11,8 @@
  -fx-color: #4e4b44;
  -fx-font: 15 "Monaco";
  -fx-text-fill: white;
+ -fx-border-radius: 10px;
+ /*-fx-transition: all 0.4s ease-in-out;*/
 }
 #ProcessInitiator:hover{
  -fx-color:grey;

@@ -1,4 +1,4 @@
-package util.account;
+package util.account.validator;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -27,13 +27,16 @@ public class InformationValidator {
   * });
   * };
   */
- Consumer<TextField> validateInput = textField -> {
+ public Consumer<TextField> validateInput = textField -> {
   var input = Optional.ofNullable(textField.getText());
-  input.filter(text -> (validateEmail.test(text) ^ validatePassowrd.test(text)) && Indicator).map(text -> {
+  input.filter(text -> (validateEmail.test(text) ^ validatePassowrd.test(text)) && !Indicator).map(text -> {
+   System.out.println(validateEmail.test(text) + " " + validatePassowrd.test(text) + text);
    Indicator = true;
    textField.setStyle("-fx-border-color: none");
    return text;
-  }).filter(text -> !(validateEmail.test(text) ^ validatePassowrd.test(text)) && !Indicator).map(text -> {
+  });
+  input.filter(text -> !(validateEmail.test(text) ^ validatePassowrd.test(text)) && Indicator).map(text -> {
+   System.out.println(validateEmail.test(text) + " " + validatePassowrd.test(text) + text);
    Indicator = false;
    textField.setStyle("-fx-border-color: red");
    return text;

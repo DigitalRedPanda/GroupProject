@@ -1,11 +1,5 @@
 package util.gui;
 
-import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Predicate;
-
-import company.member.Employee;
-import company.member.Member;
 import javafx.application.Application;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,17 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
-//import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-//import javafx.stage.StageStyle;
+import util.account.validator.InformationValidator;
 
 public class GUI extends Application {
   boolean Indicator = false;
   boolean existanceIndicator = false;
   Label emailCorrectionIndicator;
-  Employee emp = new Employee();
 
   @Override
   public void start(Stage primaryStage) {
@@ -72,11 +64,12 @@ public class GUI extends Application {
     passwordForCheckingField.setPromptText("Enter your password");
     usernameField.setOnKeyTyped(event -> {
     });
+    var validator = new InformationValidator();
     emailRegisterField.setOnKeyTyped(event -> {
-      // contentValidator.accept(Member.validateEmail, emailRegisterField);
+      validator.validateInput.accept(emailRegisterField);
     });
     passwordForCheckingField.setOnKeyTyped(event -> {
-      // contentValidator.accept(Member.validatePassowrd, passwordForCheckingField);
+      validator.validateInput.accept(passwordForCheckingField);
     });
     // This button will initiate the input processing to assure a correct input has
     // been typed
