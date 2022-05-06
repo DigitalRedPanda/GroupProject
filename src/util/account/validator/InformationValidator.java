@@ -27,6 +27,8 @@ public class InformationValidator {
   * });
   * };
   */
+ // I wrote this script to lessen the lines of code and added and indicator to
+ // prevent excessive utilization
  public Consumer<TextField> validateInput = textField -> {
   var input = Optional.ofNullable(textField.getText());
   input.filter(text -> (validateEmail.test(text) ^ validatePassowrd.test(text)) && !Indicator).map(text -> {
