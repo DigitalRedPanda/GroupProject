@@ -30,15 +30,4 @@ public class Employee extends Member implements Account {
  public void register() {
 
  }
-
- @Override
- public boolean usernameExists(String memberName) {
-  return infoExists(memberName, 0);
- }
-
- @Override
- public boolean emailExists(String email) {
-
-  return infoExists(email, 1);
- }
 }
