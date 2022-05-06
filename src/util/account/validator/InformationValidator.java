@@ -6,27 +6,9 @@ import java.util.function.Predicate;
 import javafx.scene.control.TextField;
 
 public class InformationValidator {
+ // This indicator determines either textfield content is wrong once or not to
+ // avert redundancy
  boolean Indicator = false;
- /*
-  * BiConsumer<Predicate<String>, TextField> contentValidator = (validator,
-  * textField) -> {
-  * var contentOptional = Optional.ofNullable(textField.getText());
-  * contentOptional.filter(content -> !validator.test(content) &&
-  * !Indicator).map(content -> {
-  * System.out.println(validator.test(content));
-  * Indicator = true;
-  * textField.setStyle("-fx-border-color: red");
-  * return content;
-  * });
-  * contentOptional.filter(content -> validator.test(content) &&
-  * Indicator).map(content -> {
-  * System.out.println(validator.test(content));
-  * Indicator = false;
-  * textField.setStyle("-fx-border-color: none");
-  * return content;
-  * });
-  * };
-  */
  // I wrote this script to lessen the lines of code and added and indicator to
  // prevent excessive utilization
  public Consumer<TextField> validateInput = textField -> {
