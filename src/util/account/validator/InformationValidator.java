@@ -3,6 +3,7 @@ package util.account.validator;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import javafx.scene.control.TextField;
 
@@ -38,7 +39,7 @@ public class InformationValidator {
 
  public static Consumer<TextField> validatePassowrd = password -> {
   validateInput.accept(password,
-    password.getText().matches("^[^@][\\w[^@]]+(@[a-z]+\\.)(com|net|(edu|co)\\.[a-z]{2})(\\s)*$"));
+    password.getText().matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+-=<>?{}\\[\\]]).{9,15})[\\s]*$"));
  };
 
 }
