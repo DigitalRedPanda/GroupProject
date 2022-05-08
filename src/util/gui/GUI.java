@@ -64,12 +64,11 @@ public class GUI extends Application {
     passwordForCheckingField.setPromptText("Enter your password");
     usernameField.setOnKeyTyped(event -> {
     });
-    var validator = new InformationValidator();
     emailRegisterField.setOnKeyTyped(event -> {
-      validator.validateInput.accept(emailRegisterField);
+      InformationValidator.validateEmail.accept(emailRegisterField);
     });
     passwordForCheckingField.setOnKeyTyped(event -> {
-      validator.validateInput.accept(passwordForCheckingField);
+      InformationValidator.validatePassowrd.accept(passwordForCheckingField);
     });
     // This button will initiate the input processing to assure a correct input has
     // been typed

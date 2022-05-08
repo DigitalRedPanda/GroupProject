@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Member {
 
+    private String username;
+
     private String email;
 
     private String password;
@@ -24,6 +26,18 @@ public class Member {
 
         this.password = password;
 
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public void setEmail(String email) {

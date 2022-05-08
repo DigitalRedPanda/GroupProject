@@ -12,7 +12,7 @@ public class AccountWriter implements IAcountWriter {
  @Override
  public void write(Member accountName) {
   try (var writer = new PrintWriter(dataSource)) {
-   writer.write("%s, %s, %s".formatted());
+   writer.write("%s, %s, %s".formatted(accountName.getUsername(), accountName.getEmail(), accountName.getPassword()));
   } catch (FileNotFoundException e) {
    e.printStackTrace();
   }
