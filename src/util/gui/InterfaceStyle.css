@@ -17,10 +17,6 @@
 #ProcessInitiator.button:hover {
   -fx-color: grey;
 }
-/*#ProcessInitiator:active{
- -fx-color:#142850;
- -fx-text-fill:grey;
-}*/
 #Header {
   -fx-fill: #f5f5e9;
   -fx-font: 50 "Courier New";
