@@ -19,6 +19,7 @@ public abstract class Account {
     }
 
     public Account(String email, String password) {
+
         this();
 
         this.email = email;
