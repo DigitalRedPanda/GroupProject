@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import util.account.Account;
 
-public class Employee extends Member implements Account {
+public class Employee extends Account {
 
  private static ArrayList<Employee> employeeList = new ArrayList<>();
 

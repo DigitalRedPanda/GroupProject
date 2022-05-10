@@ -1,32 +1,33 @@
-#Switcher{
- -fx-background-color: transparent;
- -fx-text-fill: grey;
- -fx-underline: false;
+#Switcher.button {
+  -fx-background-color: transparent;
+  -fx-text-fill: grey;
+  -fx-underline: false;
 }
-#Switcher:hover{
- -fx-text-fill: #C0BDBD;
- -fx-underline: true;
+#Switcher.button:hover {
+  -fx-text-fill: #c0bdbd;
+  -fx-underline: true;
 }
-#ProcessInitiator{
- -fx-color: #4e4b44;
- -fx-font: 15 "Monaco";
- -fx-text-fill: white;
- -fx-border-radius: 10px;
- /*-fx-transition: all 0.4s ease-in-out;*/
+#ProcessInitiator.button {
+  -fx-color: #4e4b44;
+  -fx-font: 15 "Monaco";
+  -fx-text-fill: white;
+  -fx-border-radius: 10px;
+  /*-fx-transition: all 0.4s ease-in-out;*/
 }
-#ProcessInitiator:hover{
- -fx-color:grey;
+#ProcessInitiator.button:hover {
+  -fx-color: grey;
 }
-#ProcessInitiator:active{
- /*color:*/
+/*#ProcessInitiator:active{
+ -fx-color:#142850;
+ -fx-text-fill:grey;
+}*/
+#Header {
+  -fx-fill: #f5f5e9;
+  -fx-font: 50 "Courier New";
+  -fx-font-weight: bold;
+  -fx-stroke: grey;
 }
-#Header{
- -fx-fill: #F5F5E9;
- -fx-font: 50 "Courier New";
- -fx-font-weight: bold;
- -fx-stroke: grey;
-}
-#Info{
- -fx-max-height: 120;
- -fx-max-width: 300;
+#Info {
+  -fx-max-height: 120;
+  -fx-max-width: 300;
 }
