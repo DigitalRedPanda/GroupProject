@@ -10,13 +10,10 @@ public class AccountReader<T extends Account> implements IAccountReader<Account>
 
  @Override
  public void read(Account account) {
-  // TODO Auto-generated method stub
-
  }
 
  @Override
  public boolean isStored(Account account) {
-  // TODO Auto-generated method stub
   return false;
  }
 
