@@ -2,8 +2,8 @@ package util.account.writer;
 
 import util.account.Account;
 
-public interface IAccountWriter<Account> {
+public interface IAccountWriter<T extends Account> {
 
- void write(Account accountName);
+ void write(T accountName);
 
 }
