@@ -41,7 +41,7 @@ public class InformationValidator {
     // TODO this method validates passwords if they contain at least one digit and a
     // capitalized letter along with at least one symbol
     validateInput.accept(password,
-        password.getText().matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+-=<>?{}\\[\\]]).{9,15})[\\s]*$"));
+        password.getText().matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{9,})[\\s]*$"));
   };
 
   public static Consumer<TextField> validateUser = username -> {
