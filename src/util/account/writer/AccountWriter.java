@@ -9,31 +9,29 @@ import util.account.reader.AccountReader;
 import util.account.reader.IAccountReader;
 
 public class AccountWriter implements IAccountWriter<Account> {
- private File dataSource = new File("src\\company\\member\\data\\Users.txt");
- private IAccountReader<Account> accountReader = new AccountReader();
+  private File dataSource = new File("src\\company\\member\\data\\Users.txt");
+  private IAccountReader accountReader = new AccountReader();
 
- @Override
- public void write(Account accountName) {
-  try (var writer = new PrintWriter(dataSource)) {
-   if (accountReader.isStored(accountName))
-    return;
-   else
-    writer.write("%s, %s, %s".formatted(accountName.getUsername(), accountName.getEmail(), accountName.getPassword()));
-
-  } catch (FileNotFoundException e) {
-   e.printStackTrace();
+  @Override
+  public void write(Account account) throws FileNotFoundException {
+    try (var writer = new PrintWriter(dataSource)) {
+      if (accountReader.isStored(account.getUsername()))
+        return;
+      else
+        writer.write(
+            "%s, %s, %s".formatted(account.getUsername(), account.getEmail(), account.getPassword()));
+    }
   }
- }
 
- /*
-  * try (var writer = new PrintWriter(dataSource)) {
-  * writer.write("%s, %s, %s".formatted(accountName.getUsername(),
-  * accountName.getEmail(), accountName.getPassword()));
-  * } catch (FileNotFoundException e) {
-  * e.printStackTrace();
-  * }
-  * 
-  * }
-  */
+  /*
+   * try (var writer = new PrintWriter(dataSource)) {
+   * writer.write("%s, %s, %s".formatted(accountName.getUsername(),
+   * accountName.getEmail(), accountName.getPassword()));
+   * } catch (FileNotFoundException e) {
+   * e.printStackTrace();
+   * }
+   * 
+   * }
+   */
 
 }

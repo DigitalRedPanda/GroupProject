@@ -1,3 +1,16 @@
+.root{
+  -fx-faint-focus-color: transparent
+}
+.root.legibility{
+  -fx-text-rendering: optimizeSpeed;
+}
+.button{
+  -fx-font-family: Georgia, 'Times New Roman', Times, serif;
+  -text-rendering: geometricPrecision;
+}
+.button:focus{
+  -fx-background-color: #3B3B3B;
+}
 #Switcher.button {
   -fx-background-color: transparent;
   -fx-text-fill: grey;
@@ -8,14 +21,26 @@
   -fx-underline: true;
 }
 #ProcessInitiator.button {
+  /*-fx-opacity: 0.1;
   -fx-color: #4e4b44;
   -fx-font: 15 "Monaco";
   -fx-text-fill: white;
-  -fx-border-style: none;
+  -fx-border-color:grey;
+  -fx-border-style: inset;
+  -fx-gap: 10px;
+  -fx-border-radius: 10px;
   /*-fx-transition: all 0.4s ease-in-out;*/
+  -fx-font: 15 "Monaco";
+  -fx-text-fill: white;
+  -fx-color: #4e4b44;
+  -fx-border-color: #626262;
+  -fx-border-radius: 20px;
+  /*-fx-width: 100px;*/
+  -fx-background-insets: 1000px;
 }
 #ProcessInitiator.button:hover {
   -fx-color: grey;
+  -fx-border-color: #c0bdbd;
 }
 #Header {
   -fx-fill: #f5f5e9;
@@ -26,4 +51,6 @@
 #Info {
   -fx-max-height: 120;
   -fx-max-width: 300;
+  -fx-focus-color: transparent;
+  -fx-text-rendering: geometricPrecision;
 }

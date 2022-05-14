@@ -26,6 +26,7 @@ public class ModifiedScene extends Scene {
     pane.setAlignment(Pos.CENTER);
     text.setId("Header");
     initiatorButton.setId("ProcessInitiator");
+    initiatorButton.setFocusTraversable(false);
     switchingButton.setId("Switcher");
     // This method that contains a lambda is liable for switching between scenes
   }

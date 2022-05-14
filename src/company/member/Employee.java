@@ -6,19 +6,23 @@ import util.account.Account;
 
 public class Employee extends Account {
 
- private static ArrayList<Employee> employeeList = new ArrayList<>();
+ // private static ArrayList<String> employeeList = new ArrayList<>();
 
  public Employee() {
   super();
+  // employeeList.add(this.getUsername());
  }
 
  public Employee(String email, String password) {
   super(email, password);
+  // employeeList.add(this.getUsername());
  }
 
- public static ArrayList<Employee> employeesList() {
-  return employeeList;
- }
+ /*
+  * public static ArrayList<String> getEmployeesList() {
+  * return employeeList;
+  * }
+  */
 
  @Override
  public void register() {

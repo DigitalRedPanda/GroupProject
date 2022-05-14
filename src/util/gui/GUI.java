@@ -15,7 +15,6 @@ import util.account.validator.InformationValidator;
 public class GUI extends Application {
   @Override
   public void start(Stage primaryStage) {
-
     // Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
     // I chose this pane type because it acommodates a good stacking support for
     // nodes
@@ -70,6 +69,7 @@ public class GUI extends Application {
     var registerNowButton = new Button();
     // This button is responsible for switching back to the first scene
     var loginSceneButton = new Button();
+    var test = new Button("اركبي عليه يا المشكلة ماني فاضي اصلحك ناقصك حياة ناشبة فيني");
     // Set this button's content to be "Register"
     registerNowButton.setText("Register");
     // Set this button's content to be "Are you already registered?"
@@ -77,7 +77,7 @@ public class GUI extends Application {
     // This second scene includes the following: VBox, Text, TextField[], First
     // button, Second Button
     var registerScene = new ModifiedScene(registerLayout, new Text("Register"),
-        new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
+        new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, test,
         loginSceneButton);
 
     registerButton.setOnMouseClicked(event -> {

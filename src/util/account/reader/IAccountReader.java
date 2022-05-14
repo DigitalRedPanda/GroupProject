@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 
 import util.account.Account;
 
-public interface IAccountReader<T extends Account> {
+public interface IAccountReader {
  // these methods are abstract methods that will be implemented inside
  // AccountReader
 
- boolean isStored(Account account) throws FileNotFoundException;
+ boolean isStored(String account) throws FileNotFoundException;
 
 }
