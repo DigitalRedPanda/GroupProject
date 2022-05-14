@@ -57,6 +57,7 @@ public class GUI extends Application {
     emailRegisterField.setPromptText("Enter your email");
     passwordForCheckingField.setPromptText("Enter your password");
     usernameField.setOnKeyTyped(event -> {
+      InformationValidator.validateUser.accept(usernameField);
     });
     emailRegisterField.setOnKeyTyped(event -> {
       InformationValidator.validateEmail.accept(emailRegisterField);
@@ -69,7 +70,6 @@ public class GUI extends Application {
     var registerNowButton = new Button();
     // This button is responsible for switching back to the first scene
     var loginSceneButton = new Button();
-    var test = new Button("اركبي عليه يا المشكلة ماني فاضي اصلحك ناقصك حياة ناشبة فيني");
     // Set this button's content to be "Register"
     registerNowButton.setText("Register");
     // Set this button's content to be "Are you already registered?"
@@ -77,7 +77,7 @@ public class GUI extends Application {
     // This second scene includes the following: VBox, Text, TextField[], First
     // button, Second Button
     var registerScene = new ModifiedScene(registerLayout, new Text("Register"),
-        new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, test,
+        new TextField[] { usernameField, emailRegisterField, passwordForCheckingField }, registerNowButton,
         loginSceneButton);
 
     registerButton.setOnMouseClicked(event -> {

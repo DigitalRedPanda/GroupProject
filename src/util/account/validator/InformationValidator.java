@@ -80,6 +80,5 @@ public class InformationValidator {
       usernameIndicator = false;
       return username;
     });
-
   };
 }
