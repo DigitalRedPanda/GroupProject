@@ -51,6 +51,6 @@
 #Info {
   -fx-max-height: 120;
   -fx-max-width: 300;
-  -fx-focus-color: transparent;
+  /*-fx-focus-color:transparent;*/
   -fx-text-rendering: geometricPrecision;
 }

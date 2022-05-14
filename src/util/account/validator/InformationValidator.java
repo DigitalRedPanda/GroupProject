@@ -66,6 +66,7 @@ public class InformationValidator {
     }).map(username -> {
       usernameField.setStyle("-fx-border-color: red;");
       usernameIndicator = true;
+      System.out.println(usernameField.getText() + usernameIndicator);
       return username;
     });
     usernameOptional.filter(usernameTyped -> {
@@ -78,6 +79,7 @@ public class InformationValidator {
     }).map(username -> {
       usernameField.setStyle("-fx-border-color: none;");
       usernameIndicator = false;
+      System.out.println(usernameField.getText() + usernameIndicator);
       return username;
     });
   };
